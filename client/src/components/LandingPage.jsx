@@ -65,13 +65,20 @@ function LandingPage() {
                 </div>
                 <div className='review mt-2'>
                     <h1 className='text-center'>Customer Reviews</h1>
-                    <div className='d-flex justify-content-around p-5'>
+                    <div className='d-flex justify-content-around p-4'>
                         {Array(4).fill().map((item, index) => (
-                            <p key={index} className='review-item'>
-                                    <p>Sunil Patil</p>
-                                    <p></p>
+                            <p key={index} className='review-item d-flex flex-column'>
+                                <small className='p-3 m-1'>"Exceptional psychiatrist with a compassionate approach, expert guidance, and genuine concern for patients' well-being. Highly recommend for top-notch mental health care and support."</small>
+                                <p className='text-center m-0'><b>Sunil Patil</b></p>
+                                <small className='text-right'>-- MBBS, psychiatry</small>
+                                <div className='d-flex mx-auto'>
+                                    {Array(index + 1).fill().map(() => (
+                                        <h3 style={{ color: "#ffd700" }}>&#9733;</h3>
+                                    ))}
+                                </div>
                             </p>
                         ))}
+                        <p className='view-all my-auto p-2' style={{ cursor: 'pointer' }}>View All</p>
                     </div>
                 </div>
                 <div className='client mt-2'>
@@ -91,6 +98,7 @@ function LandingPage() {
 
                         </p>
                     </div>
+                    <p className='view-all my-auto p-2' style={{ cursor: 'pointer' }}>View All</p>
                 </div>
             </div>
         </div>
