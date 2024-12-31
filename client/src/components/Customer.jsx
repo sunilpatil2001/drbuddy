@@ -6,9 +6,9 @@ import { Modal } from "react-bootstrap"
 // import AddpatientValidation from '../validations/addPatientValidation';
 // import baseUrl from '../assets/baseUrl'
 
-function Book({ onClose }) {
+function Customer() {
     // const nevigate = useNavigate()
-    const [show, setShow] = useState(true);
+    const [isShow, invokeModal] = useState(true)
     // const [name, setName] = useState('');
     // const [id, setId] = useState('');
     // const [errors, setErrors] = useState({});
@@ -20,11 +20,13 @@ function Book({ onClose }) {
     // })
     // const [finishStatus, setfinishStatus] = useState(false);
     // const [names, getNames] = useState([]);
-    const handleClose = () => {
-        setShow(false)
-        onClose();
-        // nevigate('/admin')
-    };
+
+    const initModal = () => {
+        if (isShow) {
+          nevigate(-1)
+        }
+        return invokeModal(!isShow)
+      }
     // const handleNames = async (data) => {
     //     console.log(data)
     //     setId(data.id)
@@ -101,8 +103,8 @@ function Book({ onClose }) {
     }, [])
     return (
         <div className='print-pre text-center'>
-            <Modal className='stats-modal' size="xl" show={show} onHide={handleClose} backdrop="static">
-                <Modal.Header closeButton>
+            <Modal className='stats-modal' size="xl" show={isShow} backdrop="static">
+                <Modal.Header closeButton onClick={initModal}>
                 </Modal.Header>
                 <Modal.Body >
                     <div>
@@ -172,4 +174,4 @@ function Book({ onClose }) {
     )
 }
 
-export default Book
+export default Customer
