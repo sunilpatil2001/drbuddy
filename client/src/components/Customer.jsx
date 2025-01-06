@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
 // import Select from 'react-select'
 import { Modal } from "react-bootstrap"
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 // import axios from 'axios';
 // import AddpatientValidation from '../validations/addPatientValidation';
 // import baseUrl from '../assets/baseUrl'
 
-function Customer() {
-    // const nevigate = useNavigate()
-    const [isShow, invokeModal] = useState(true)
+function Customer({ onClose }) {
+    const nevigate = useNavigate()
+    const [show, setShow] = useState(true);
     // const [name, setName] = useState('');
     // const [id, setId] = useState('');
     // const [errors, setErrors] = useState({});
@@ -21,12 +21,11 @@ function Customer() {
     // const [finishStatus, setfinishStatus] = useState(false);
     // const [names, getNames] = useState([]);
 
-    const initModal = () => {
-        if (isShow) {
-          nevigate(-1)
-        }
-        return invokeModal(!isShow)
-      }
+    const handleClose = () => {
+        setShow(false)
+        onClose();
+        // nevigate('/admin')
+    };
     // const handleNames = async (data) => {
     //     console.log(data)
     //     setId(data.id)
@@ -103,8 +102,8 @@ function Customer() {
     }, [])
     return (
         <div className='print-pre text-center'>
-            <Modal className='stats-modal' size="xl" show={isShow} backdrop="static">
-                <Modal.Header closeButton onClick={initModal}>
+            <Modal className='stats-modal' size="xl" show={show} onHide={handleClose} backdrop="static">
+                <Modal.Header closeButton>
                 </Modal.Header>
                 <Modal.Body >
                     <div>
@@ -132,20 +131,6 @@ function Customer() {
                                     <input type="text" name="address" id='address' className="form-control" placeholder="address"
                                         autoComplete="off" />
                                 </div>
-                                <div className="form-group col-md-4 col-sm-6">
-                                    <label htmlFor="gender"><strong>Gender</strong></label>
-                                    <select className="form-select" id='gender' name='gender'>
-                                        <option selected>select</option>
-                                        <option value="Male">Male</option>
-                                        <option value="Female">Female</option>
-                                        <option value="other">Prefer not to say</option>
-                                    </select>
-                                    {/* {errors.gender && <p className='text-danger m-0'>{errors.gender}</p>} */}
-                                </div>
-                                <div className="form-group col-md-4 col-sm-6">
-                                    <label htmlFor="age"><strong>Age</strong></label>
-                                    <input type="number" min='0' max='150' id='age' name="age" className="form-control" placeholder="age" autoComplete="off" />
-                                </div>
                                 <div className="form-group col-md-4 col-sm-6 medical">
                                     <label htmlFor="age"><strong>Clinic/Hospital Name</strong></label>
                                     <input type="number" min='0' max='150' id='age' name="pulse" className="form-control" placeholder="beats/min" autoComplete="off" />
@@ -164,7 +149,7 @@ function Customer() {
                                 </div>
                             </div>
                             <div className="text-center mt-4">
-                                <h4 id='r'><button className="btn btn-primary">Book</button></h4>
+                                <h4 id='r'><button className="btn btn-primary">Add</button></h4>
                             </div>
                         </form>
                     </div>

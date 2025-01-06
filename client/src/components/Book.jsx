@@ -100,74 +100,39 @@ function Book({ onClose }) {
 
     }, [])
     return (
-        <div className='print-pre text-center'>
-            <Modal className='stats-modal' size="xl" show={show} onHide={handleClose} backdrop="static">
-                <Modal.Header closeButton>
-                </Modal.Header>
-                <Modal.Body >
-                    <div>
-                        <form>
-                            <div className='row add'>
-                                <div className="form-group col-md-4 col-sm-6">
-                                    <label htmlFor="exampleInputEmail1"><strong>Full Name</strong></label>
-                                    <input type="text" name="name" className="form-control" placeholder="full name"
-                                        autoComplete="off" />
-                                    {/* {errors.name && <p className='text-danger m-0'>{errors.name}</p>} */}
-                                </div>
-                                <div className="form-group col-md-4 col-sm-6">
-                                    <label htmlFor="contact"><strong>Contact</strong></label>
-                                    <input type="tel" name="contact" id='contact' className="form-control" placeholder="contact" autoComplete="off" />
-                                    {/* {errors.contact && <p className='text-danger m-0'>{errors.contact}</p>} */}
-                                </div>
-
-                                <div className="form-group col-md-4 col-sm-6">
-                                    <label htmlFor="exampleInputEmail1"><strong>Email</strong></label>
-                                    <input type="email" name="email" className="form-control" placeholder="email" autoComplete="off" />
-                                    {/* {errors.email && <p className='text-danger m-0'>{errors.email}</p>} */}
-                                </div>
-                                <div className="form-group col-md-4 col-sm-6">
-                                    <label htmlFor="address"><strong>Address</strong></label>
-                                    <input type="text" name="address" id='address' className="form-control" placeholder="address"
-                                        autoComplete="off" />
-                                </div>
-                                <div className="form-group col-md-4 col-sm-6">
-                                    <label htmlFor="gender"><strong>Gender</strong></label>
-                                    <select className="form-select" id='gender' name='gender'>
-                                        <option selected>select</option>
-                                        <option value="Male">Male</option>
-                                        <option value="Female">Female</option>
-                                        <option value="other">Prefer not to say</option>
-                                    </select>
-                                    {/* {errors.gender && <p className='text-danger m-0'>{errors.gender}</p>} */}
-                                </div>
-                                <div className="form-group col-md-4 col-sm-6">
-                                    <label htmlFor="age"><strong>Age</strong></label>
-                                    <input type="number" min='0' max='150' id='age' name="age" className="form-control" placeholder="age" autoComplete="off" />
-                                </div>
-                                <div className="form-group col-md-4 col-sm-6 medical">
-                                    <label htmlFor="age"><strong>Clinic/Hospital Name</strong></label>
-                                    <input type="number" min='0' max='150' id='age' name="pulse" className="form-control" placeholder="beats/min" autoComplete="off" />
-                                </div>
-                                <div className="form-group col-md-4 col-sm-6 medical">
-                                    <label htmlFor="age"><strong></strong></label>
-                                    <input type="number" min='0' max='150' id='age' name="bp" className="form-control" placeholder="..." autoComplete="off" />
-                                </div>
-                                <div className="form-group col-md-4 col-sm-6 medical">
-                                    <label htmlFor="age"><strong></strong></label>
-                                    <input type="number" min='0' max='150' id='age' name="weight" className="form-control" placeholder="..." autoComplete="off" />
-                                </div>
-                                <div className="form-group col-md-4 col-sm-6">
-                                    <label htmlFor="ref"><strong></strong></label>
-                                    <input type="text" id='ref' name="referral" className="form-control" placeholder="..." autoComplete="off" />
-                                </div>
-                            </div>
-                            <div className="text-center mt-4">
-                                <h4 id='r'><button className="btn btn-primary">Book</button></h4>
-                            </div>
-                        </form>
+        <div className='print-pre m-2' style={{ flex: '0 0 auto'}}>
+            <form>
+                <div className='row add'>
+                    <div className="form-group col-12">
+                        <label htmlFor="exampleInputEmail1"><strong>Full Name</strong></label>
+                        <input type="text" name="name" className="form-control" placeholder="full name"
+                            autoComplete="off" />
+                        {/* {errors.name && <p className='text-danger m-0'>{errors.name}</p>} */}
                     </div>
-                </Modal.Body>
-            </Modal>
+                    <div className="form-group col-12">
+                        <label htmlFor="contact"><strong>Contact</strong></label>
+                        <input type="tel" name="contact" id='contact' className="form-control" placeholder="contact" autoComplete="off" />
+                        {/* {errors.contact && <p className='text-danger m-0'>{errors.contact}</p>} */}
+                    </div>
+                    <div className="form-group col-12">
+                        <label htmlFor="exampleInputEmail1"><strong>Email</strong></label>
+                        <input type="email" name="email" className="form-control" placeholder="email" autoComplete="off" />
+                        {/* {errors.email && <p className='text-danger m-0'>{errors.email}</p>} */}
+                    </div>
+                    <div className="form-group col-12">
+                        <label htmlFor="address"><strong>Address</strong></label>
+                        <input type="text" name="address" id='address' className="form-control" placeholder="address"
+                            autoComplete="off" />
+                    </div>
+                    <div className="form-group col-12 medical">
+                        <label htmlFor="age"><strong>Clinic/Hospital Name</strong></label>
+                        <input type="number" min='0' max='150' id='age' name="pulse" className="form-control" placeholder="hospital" autoComplete="off" />
+                    </div>
+                </div>
+                <div className="text-center mt-4">
+                    <h4 id='r'><button className="btn btn-primary">Book</button></h4>
+                </div>
+            </form>
         </div>
     )
 }

@@ -1,4 +1,9 @@
+import { useState } from "react"
+import { Modal } from "react-bootstrap"
+import { useNavigate } from "react-router-dom"
+
 function Review() {
+    const nevigate = useNavigate()
     const [isShow, invokeModal] = useState(true)
     const initModal = () => {
         if (isShow) {
@@ -31,3 +36,5 @@ function Review() {
         </Modal>
     )
 }
+
+export default Review

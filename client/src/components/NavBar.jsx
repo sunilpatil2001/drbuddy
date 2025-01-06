@@ -13,7 +13,7 @@ function NavBar() {
                         <span className="navbar-toggler-icon"></span>
                     </button>
                     <div className="collapse navbar-collapse d-lg-flex justify-content-end" id="navbarTogglerDemo02">
-                        <Link to="/signin" className="d-block sign p-2 text-light" tabIndex="-1" aria-disabled="true">Sign In</Link>
+                        {!sessionStorage.getItem('jwt') ? <Link to="/signin" className="d-block sign disabled p-2 text-light" tabIndex="-1" aria-disabled="true">Sign In</Link> : <Link to="logout" className="d-block sign disabled p-2 text-light" tabIndex="-1" aria-disabled="true">Log out</Link>}
                     </div>
                 </nav>
             </div>
