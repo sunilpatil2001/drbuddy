@@ -152,7 +152,7 @@ function LandingPage() {
                         </div>
                     }
                     {products &&
-                        <div id="expertCarousel" className="carousel col-md-4 col-sm-8 mt mt-5 my-auto slide expert" data-ride="carousel">
+                        <div id="expertCarousel" className="carousel col-md-4 col-sm-8 mt-5 my-auto slide expert" data-ride="carousel">
                             <div className="carousel-inner">
                                 <div className="carousel-item expert-item active">
                                     <h4 className='mt-md-5 mt-sm-2 mb-md-5 mb-sm-2 m-2'>Patient Profile Management</h4>
