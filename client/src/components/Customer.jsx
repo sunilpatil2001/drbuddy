@@ -101,7 +101,7 @@ function Customer({ onClose }) {
 
     }, [])
     return (
-        <div className='print-pre text-center'>
+        <div className='print-pre text-center col-sm-6'>
             <Modal className='stats-modal' size="xl" show={show} onHide={handleClose} backdrop="static">
                 <Modal.Header closeButton>
                 </Modal.Header>

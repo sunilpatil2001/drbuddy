@@ -12,7 +12,7 @@ function Review() {
         return invokeModal(!isShow)
       }
     return (
-        <Modal animation='fade' show={isShow} aria-labelledby="contained-modal-title-vcenter"
+        <Modal animation='fade' className="col-sm-8" show={isShow} aria-labelledby="contained-modal-title-vcenter"
             centered>
             <Modal.Header closeButton onClick={initModal}>
                 <h4>Book a Slot</h4>

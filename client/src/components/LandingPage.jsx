@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react';
 import Book from './Book';
 import Customer from './Customer';
 import Review from './Review';
-import { Link } from 'react-router-dom';
+
 
 function LandingPage() {
     const [book, setBook] = useState(false)
@@ -59,10 +59,10 @@ function LandingPage() {
     return (
         <div>
             <NavBar />
-            <div className='landing'>
+            <div className='landing text-center'>
                 <img src={LP} alt='teacher' />
-                <div className='d-flex menu justify-content-between'>
-                    <div className='col-3'>
+                <div className='d-md-flex menu justify-content-between'>
+                    <div className='col-md-3 col-sm-8'>
                         <button className='p-2 m-3 mt-5 w-75' onClick={handleProducts}>Product</button>
                         <button onClick={sessionStorage.getItem('role') === 'admin' ? handleUser : sessionStorage.getItem('role') === 'user' ? handleReview : handleBook} className='p-2 m-3 w-75'>{sessionStorage.getItem('role') === 'admin' ? 'Add Customer' : sessionStorage.getItem('role') === 'user' ? 'Add Review' : 'Book a free Demo'}</button><br />
                         <button className='p-2 m-3 w-75' onClick={handleExpert}>Expert's Panel</button>
@@ -75,12 +75,12 @@ function LandingPage() {
                         <button className='p-2 m-3 w-75'>Contact Us</button>
                         <button className='p-2 m-3 w-75' onClick={handleReviewsCu}>Reviews</button>
                     </div>
-                    {book && <div className='book col-4 my-5'>
+                    {book && <div className='book col-md-4 col-sm-12 my-5'>
                         <Book />
                     </div>
                     }
                     {expert &&
-                        <div id="expertCarousel" className="carousel col-4 mt-5 my-auto slide expert" data-ride="carousel">
+                        <div id="expertCarousel" className="carousel col-md-4 col-sm-8 mt-5 my-auto slide expert" data-ride="carousel">
                             <div className="carousel-inner">
                                 <div className="carousel-item active">
                                     <div className="expert-item text-center">
@@ -124,7 +124,7 @@ function LandingPage() {
                         </div>
                     }
                     {reviewCu &&
-                        <div id="expertCarousel" className="carousel col-4 mt-5 my-auto slide" data-ride="carousel">
+                        <div id="expertCarousel" className="carousel col-md-4 col-sm-8 mt-5 my-auto slide" data-ride="carousel">
                             <div className="carousel-inner review">
                                 {Array(5).fill().map((item, index) => (
                                     <div className={index === 0 ? "carousel-item active" : "carousel-item"}>
@@ -152,10 +152,10 @@ function LandingPage() {
                         </div>
                     }
                     {products &&
-                        <div id="expertCarousel" className="carousel col-4 mt-5 my-auto slide expert" data-ride="carousel">
+                        <div id="expertCarousel" className="carousel col-md-4 col-sm-8 mt mt-5 my-auto slide expert" data-ride="carousel">
                             <div className="carousel-inner">
                                 <div className="carousel-item expert-item active">
-                                    <h4 className='mt-5 mb-5 m-2'>Patient Profile Management</h4>
+                                    <h4 className='mt-md-5 mt-sm-2 mb-md-5 mb-sm-2 m-2'>Patient Profile Management</h4>
                                     <ul>
                                         <li>Basic Information: Name, age, gender, contact details, insurance information, emergency contact.</li>
                                         <li>Medical History: Past medical history, family medical history, allergies, medications, and surgeries.</li>
@@ -163,9 +163,51 @@ function LandingPage() {
                                         <li>Consent Forms: Digital signatures for consent and treatment agreements.</li>
                                     </ul>
                                 </div>
-                                <div className="carousel-item">
+                                <div className="carousel-item expert-item">
+                                    <h4 className='mt-md-5 mt-sm-2 mb-md-5 mb-sm-2 m-2'>Mental State Examination (MSE) Documentation</h4>
                                     <ul>
-                                        <li></li>
+                                        <li><strong>Sectioned Data Fields:</strong>
+                                            <ul>
+                                                <li>Appearance</li>
+                                                <li>Speech</li>
+                                                <li>Mood and Affect</li>
+                                                <li>Thought Process (organized, disorganized)</li>
+                                                <li>Perception (hallucinations, delusions)</li>
+                                                <li>Cognition (memory, attention)</li>
+                                                <li>Insight and Judgment</li>
+                                            </ul>
+                                        </li>
+                                        <li><strong>Templates and Checklists:</strong>
+                                            <ul>
+                                                <li>Predefined templates with drop-downs for efficient MSE documentation</li>
+                                                <li>Easy-to-use interface for quick completion in few clicks</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div className="carousel-item expert-item">
+                                    <h4 className='mt-md-5 mt-sm-2 mb-md-5 mb-sm-2 m-2'>Case History Management</h4>
+                                    <ul>
+                                        <li><strong>Detailed Case Notes:</strong>
+                                            <ul>
+                                                <li>Chronological documentation of patient's mental health journey</li>
+                                                <li>Documentation of therapy sessions</li>
+                                                <li>Tracking of patient progress</li>
+                                            </ul>
+                                        </li>
+                                        <li><strong>Risk Assessment:</strong>
+                                            <ul>
+                                                <li>Recording of suicide risk</li>
+                                                <li>Documentation of self-harm behaviours</li>
+                                                <li>Assessment of violence risk</li>
+                                            </ul>
+                                        </li>
+                                        <li><strong>Diagnosis Tracking:</strong>
+                                            <ul>
+                                                <li>Tracking of changes in diagnosis over time</li>
+                                                <li>Inclusion of both ICD-10 and DSM-5 codes</li>
+                                            </ul>
+                                        </li>
                                     </ul>
                                 </div>
                             </div>
