@@ -82,12 +82,22 @@
   .landing {
     overflow: scroll;
   }
+
+  .lap {
+    display: none !important;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .phone {
+    display: none !important;
+  }
 }
 
 .landing img {
   height: 91vh;
   width: 100%;
-  opacity: 0.6;
+  opacity: 0.7;
 
 }
 
@@ -177,11 +187,11 @@
   background-color: #bce1f3ec;
 }
 
-.landing .expert .expert-item img{
+.landing .expert .expert-item img {
   border-radius: 50px;
 }
 
-.landing .expert .expert-item small{
+.landing .expert .expert-item small {
   width: 400px;
 }
 

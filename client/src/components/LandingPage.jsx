@@ -1,4 +1,5 @@
 import LP from '../assets/LP.jpg';
+import LPG from '../assets/LPG.jpg';
 import dr2 from '../assets/dr2.jpg';
 import dr1 from '../assets/dr1.jpg';
 import '../App.css';
@@ -7,6 +8,7 @@ import { useEffect, useState } from 'react';
 import Book from './Book';
 import Customer from './Customer';
 import Review from './Review';
+import { TiArrowSortedDown } from "react-icons/ti";
 
 
 function LandingPage() {
@@ -59,10 +61,24 @@ function LandingPage() {
     return (
         <div>
             <NavBar />
-            <div className='landing text-center'>
-                <img src={LP} alt='teacher' />
+            <div className='landing'>
+                <img src={LP} alt='teacher' className='lap' />
+                <img src={LPG} alt='teacher' className='phone' />
                 <div className='d-md-flex menu justify-content-between'>
-                    <div className='col-md-3 col-sm-8'>
+                    <div className='d-sm-inline  col-md-3 col-sm-4 phone'>
+                        <button className='mb-1 mt-2 w-50' onClick={handleProducts}>Product</button>
+                        <button onClick={sessionStorage.getItem('role') === 'admin' ? handleUser : sessionStorage.getItem('role') === 'user' ? handleReview : handleBook} className='mb-1 w-50'>{sessionStorage.getItem('role') === 'admin' ? 'Add Customer' : sessionStorage.getItem('role') === 'user' ? 'Add Review' : 'Book a free Demo'}</button><br />
+                        <button className='mb-1 w-50' onClick={handleExpert}>Expert's Panel</button>
+                        {customer &&
+                            <Customer onClose={() => setCustomer(false)} />
+                        }
+                        {review &&
+                            <Review onClose={() => setReview(false)} />
+                        }
+                        <button className='w-50'>Contact Us</button>
+                        {/* <button className='p-2 m-3 w-75' onClick={handleReviewsCu}>Reviews</button> */}
+                    </div>
+                    <div className='col-md-3 col-sm-4 lap'>
                         <button className='p-2 m-3 mt-5 w-75' onClick={handleProducts}>Product</button>
                         <button onClick={sessionStorage.getItem('role') === 'admin' ? handleUser : sessionStorage.getItem('role') === 'user' ? handleReview : handleBook} className='p-2 m-3 w-75'>{sessionStorage.getItem('role') === 'admin' ? 'Add Customer' : sessionStorage.getItem('role') === 'user' ? 'Add Review' : 'Book a free Demo'}</button><br />
                         <button className='p-2 m-3 w-75' onClick={handleExpert}>Expert's Panel</button>
@@ -73,7 +89,7 @@ function LandingPage() {
                             <Review onClose={() => setReview(false)} />
                         }
                         <button className='p-2 m-3 w-75'>Contact Us</button>
-                        <button className='p-2 m-3 w-75' onClick={handleReviewsCu}>Reviews</button>
+                        {/* <button className='p-2 m-3 w-75' onClick={handleReviewsCu}>Reviews</button> */}
                     </div>
                     {book && <div className='book col-md-4 col-sm-12 my-5'>
                         <Book />
