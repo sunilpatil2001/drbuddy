@@ -63,19 +63,19 @@ function LandingPage() {
             <NavBar />
             <div className='landing'>
                 <img src={LP} alt='teacher' className='lap' />
-                <img src={LPG} alt='teacher' className='phone' />
+                <img src={LP} alt='teacher' className='phone' />
                 <div className='d-md-flex menu justify-content-between'>
-                    <div className='d-sm-inline  col-md-3 col-sm-4 phone'>
-                        <button className='mb-1 mt-2 w-50' onClick={handleProducts}>Product</button>
-                        <button onClick={sessionStorage.getItem('role') === 'admin' ? handleUser : sessionStorage.getItem('role') === 'user' ? handleReview : handleBook} className='mb-1 w-50'>{sessionStorage.getItem('role') === 'admin' ? 'Add Customer' : sessionStorage.getItem('role') === 'user' ? 'Add Review' : 'Book a free Demo'}</button><br />
-                        <button className='mb-1 w-50' onClick={handleExpert}>Expert's Panel</button>
+                    <div className='d-flex flex-column col-md-3 col-sm-4 phone'>
+                        <button className='mb-3 p-2 mx-auto w-75' onClick={handleProducts}>Product</button>
+                        <button onClick={sessionStorage.getItem('role') === 'admin' ? handleUser : sessionStorage.getItem('role') === 'user' ? handleReview : handleBook} className='mb-3 mx-auto p-2 w-75'>{sessionStorage.getItem('role') === 'admin' ? 'Add Customer' : sessionStorage.getItem('role') === 'user' ? 'Add Review' : 'Book a free Demo'}</button>
+                        <button className='mb-3 mx-auto p-2 w-75' onClick={handleExpert}>Expert's Panel</button>
                         {customer &&
                             <Customer onClose={() => setCustomer(false)} />
                         }
                         {review &&
                             <Review onClose={() => setReview(false)} />
                         }
-                        <button className='w-50'>Contact Us</button>
+                        <button className='w-75 mx-auto p-2'>Contact Us</button>
                         {/* <button className='p-2 m-3 w-75' onClick={handleReviewsCu}>Reviews</button> */}
                     </div>
                     <div className='col-md-3 col-sm-4 lap'>
