@@ -1,11 +1,12 @@
 import LP from '../assets/LP.jpg';
 import LPG from '../assets/LPG.jpg';
-import dr2 from '../assets/dr2.jpg';
-import dr1 from '../assets/dr1.jpg';
+import dr2 from '../assets/dr2.jpeg';
+import dr1 from '../assets/dr1.jpeg';
 import '../App.css';
 import NavBar from './NavBar';
 import { useEffect, useState } from 'react';
 import Book from './Book';
+import patient from '../assets/patient.jpeg'
 import Customer from './Customer';
 import Review from './Review';
 import { TiArrowSortedDown } from "react-icons/ti";
@@ -15,6 +16,7 @@ function LandingPage() {
     const [book, setBook] = useState(false)
     const [review, setReview] = useState(false)
     const [customer, setCustomer] = useState(false)
+    const [contact, setContact] = useState(false)
     const [reviewCu, setReviewCu] = useState(false)
     const [products, setProducts] = useState(false)
     const [expert, setExpert] = useState(false)
@@ -23,13 +25,23 @@ function LandingPage() {
         setReviewCu(false)
         setExpert(false)
         setProducts(false)
+        setContact(false)
         setBook(!book)
+    }
+
+    const handleContact = () => {
+        setExpert(false)
+        setBook(false)
+        setProducts(false)
+        setReviewCu(false)
+        setContact(!contact)
     }
 
     const handleReviewsCu = () => {
         setExpert(false)
         setBook(false)
         setProducts(false)
+        setContact(false)
         setReviewCu(!reviewCu)
     }
 
@@ -37,6 +49,7 @@ function LandingPage() {
         setBook(false)
         setReviewCu(false)
         setProducts(false)
+        setContact(false)
         setExpert(!expert)
     }
 
@@ -44,6 +57,7 @@ function LandingPage() {
         setBook(false)
         setReviewCu(false)
         setExpert(false)
+        setContact(false)
         setProducts(!products)
     }
 
@@ -75,7 +89,7 @@ function LandingPage() {
                         {review &&
                             <Review onClose={() => setReview(false)} />
                         }
-                        <button className='w-75 mx-auto p-2'>Contact Us</button>
+                        <button className='w-75 mx-auto p-2' onClick={handleContact}>Contact Us</button>
                         {/* <button className='p-2 m-3 w-75' onClick={handleReviewsCu}>Reviews</button> */}
                     </div>
                     <div className='col-md-3 col-sm-4 lap'>
@@ -88,10 +102,10 @@ function LandingPage() {
                         {review &&
                             <Review onClose={() => setReview(false)} />
                         }
-                        <button className='p-2 m-3 w-75'>Contact Us</button>
+                        <button className='p-2 m-3 w-75' onClick={handleContact}>Contact Us</button>
                         {/* <button className='p-2 m-3 w-75' onClick={handleReviewsCu}>Reviews</button> */}
                     </div>
-                    {book && <div className='book col-md-4 col-sm-12 my-5'>
+                    {book && <div className='book mx-2 col-md-4 col-sm-8 mt-5 my-auto slide expert'>
                         <Book />
                     </div>
                     }
@@ -99,7 +113,7 @@ function LandingPage() {
                         <div id="expertCarousel" className="carousel col-md-4 col-sm-8 mt-5 my-auto slide expert" data-ride="carousel">
                             <div className="carousel-inner">
                                 <div className="carousel-item active">
-                                    <div className="expert-item text-center">
+                                    <div className="expert-item text-center px-5">
                                         <img className="p-3" src={dr2} />
                                         <div className="text-center">
                                             <p className="p-0 m-0">
@@ -115,7 +129,7 @@ function LandingPage() {
                                     </div>
                                 </div>
                                 <div className="carousel-item">
-                                    <div className="expert-item text-center">
+                                    <div className="expert-item text-center px-5">
                                         <img className="p-3" src={dr1} />
                                         <div className="text-center">
                                             <p className="p-0 m-0">
@@ -168,18 +182,20 @@ function LandingPage() {
                         </div>
                     }
                     {products &&
-                        <div id="expertCarousel" className="carousel col-md-4 col-sm-8 mt-5 my-auto slide expert" data-ride="carousel">
+                        <div id="expertCarousel" className="carousel patientdata col-md-4 col-sm-8 mt-5 my-auto slide expert" data-ride="carousel">
                             <div className="carousel-inner">
-                                <div className="carousel-item expert-item active">
-                                    <h4 className='mt-md-5 mt-sm-2 mb-md-5 mb-sm-2 m-2'>Patient Profile Management</h4>
-                                    <ul>
-                                        <li>Basic Information: Name, age, gender, contact details, insurance information, emergency contact.</li>
-                                        <li>Medical History: Past medical history, family medical history, allergies, medications, and surgeries.</li>
-                                        <li>Mental Health History: Previous diagnoses, treatments, therapy sessions, and interventions.</li>
-                                        <li>Consent Forms: Digital signatures for consent and treatment agreements.</li>
+                                <div className="carousel-item expert-item text-center active px-4">
+                                    <h4 className='mt-1'>Patient Management</h4>
+
+                                    <img src={patient} alt='teacher' className='patient mt-2 mb-4' />
+                                    <ul className='text-left'>
+                                        <li>Name, age, gender, contact details, emergency contact.</li>
+                                        <li>Past medical history, family medical history, medications, and surgeries.</li>
+                                        <li>Previous diagnoses, treatments, and interventions.</li>
+                                        <li>Digital signatures for consent and treatment agreements.</li>
                                     </ul>
                                 </div>
-                                <div className="carousel-item expert-item">
+                                <div className="carousel-item expert-item px-4">
                                     <h4 className='mt-md-5 mt-sm-2 mb-md-5 mb-sm-2 m-2'>Mental State Examination (MSE) Documentation</h4>
                                     <ul>
                                         <li><strong>Sectioned Data Fields:</strong>
@@ -201,7 +217,7 @@ function LandingPage() {
                                         </li>
                                     </ul>
                                 </div>
-                                <div className="carousel-item expert-item">
+                                <div className="carousel-item expert-item px-4">
                                     <h4 className='mt-md-5 mt-sm-2 mb-md-5 mb-sm-2 m-2'>Case History Management</h4>
                                     <ul>
                                         <li><strong>Detailed Case Notes:</strong>
@@ -237,25 +253,33 @@ function LandingPage() {
                             </a>
                         </div>
                     }
-                </div>
-                {/* <div className='client mt-1'>
-                        <h1 className='text-center'>Our Clients</h1>
-                        <div className='d-flex justify-content-around p-5'>
-                            <div className='client-item'>
-                                <p>Sunil Patil</p>
-                                <p></p>
+                    {contact &&
+                        <div className='mx-2 col-md-4 col-sm-8 mt-5 my-auto contact text-center'>
+                            <div>
+                                <div className="text-center mt-4 mb-5">
+                                    <h3 className='mt-5'>Get in touch with us!</h3>
+                                </div>
+                                <div className='row add'>
+                                    <div className="form-group col-12">
+                                        <h5><strong>Contact</strong></h5>
+                                        <h4>+91-1234567890</h4>
+                                    </div>
+                                    <div className="form-group col-12">
+                                        <h5><strong>Email</strong></h5>
+                                        <h4>example@email.com</h4>
+                                    </div>
+                                    <div className="form-group col-12">
+                                        <h5><strong>Address</strong></h5>
+                                        <h5>Manoraj Society, Off Karve Road, Pune, Maharashtra, India</h5>
+                                    </div>
+                                </div>
                             </div>
-                            <p className='client-item'>
-
-                            </p>
-                            <p className='client-item'>
-
-                            </p>
-                            <p className='client-item'>
-
-                            </p>
                         </div>
-                    </div> */}
+                        // <div className="carousel col-md-4 col-sm-8 mt-5 my-auto book">
+
+                        // </div>
+                    }
+                </div>
             </div>
         </div>
     )
