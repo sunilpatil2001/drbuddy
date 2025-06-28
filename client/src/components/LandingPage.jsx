@@ -1,5 +1,5 @@
-import LP from '../assets/WebPage 03.jpg';
-import LPG from '../assets/LPG.jpg';
+import LP from '../assets/BGL.jpg';
+import BGP from '../assets/BGP.jpg';
 import dr2 from '../assets/dr2.jpeg';
 import dr1 from '../assets/dr1.jpeg';
 import '../App.css';
@@ -77,7 +77,7 @@ function LandingPage() {
             <NavBar />
             <div className='landing'>
                 <img src={LP} alt='teacher' className='lap' />
-                <img src={LP} alt='teacher' className='phone' />
+                <img src={BGP} alt='teacher' className='phone' />
                 <div className='d-md-flex menu justify-content-between'>
                     <div className='d-flex flex-column col-md-3 col-sm-4 phone'>
                         <button className='mb-3 p-2 mx-auto w-75' onClick={handleProducts}>Product</button>
