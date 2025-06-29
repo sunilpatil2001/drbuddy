@@ -27,9 +27,11 @@ function LandingPage() {
         setProducts(false)
         setContact(false)
         setBook(!book)
-        setTimeout(() => {
-      componentRef.current.scrollIntoView({ behavior: 'smooth' });
-    }, 100);
+        if (!book) {
+            setTimeout(() => {
+                componentRef.current.scrollIntoView({ behavior: 'smooth' });
+            }, 100);
+        }
     }
 
     const handleContact = () => {
@@ -38,9 +40,11 @@ function LandingPage() {
         setProducts(false)
         setReviewCu(false)
         setContact(!contact)
-        setTimeout(() => {
-      componentRef.current.scrollIntoView({ behavior: 'smooth' });
-    }, 100);
+        if (!contact) {
+            setTimeout(() => {
+                componentRef.current.scrollIntoView({ behavior: 'smooth' });
+            }, 100);
+        }
     }
 
     const handleExpert = () => {
@@ -49,9 +53,11 @@ function LandingPage() {
         setProducts(false)
         setContact(false)
         setExpert(!expert)
-        setTimeout(() => {
-      componentRef.current.scrollIntoView({ behavior: 'smooth' });
-    }, 100);
+        if (!expert) {
+            setTimeout(() => {
+                componentRef.current.scrollIntoView({ behavior: 'smooth' });
+            }, 100);
+        }
     }
 
     const handleProducts = () => {
@@ -60,9 +66,12 @@ function LandingPage() {
         setExpert(false)
         setContact(false)
         setProducts(!products)
-        setTimeout(() => {
-      componentRef.current.scrollIntoView({ behavior: 'smooth' });
-    }, 100);
+        console.log(products)
+        if (!products) {
+            setTimeout(() => {
+                componentRef.current.scrollIntoView({ behavior: 'smooth' });
+            }, 100);
+        }
     }
 
     const handleReview = () => {
@@ -78,7 +87,7 @@ function LandingPage() {
     }, [])
     return (
         <div>
-            <NavBar 
+            <NavBar
                 handleProducts={handleProducts}
                 handleContact={handleContact}
                 handleExpert={handleExpert}

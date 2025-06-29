@@ -22,7 +22,7 @@
   width: 100vw;
 }
 
-body{
+body {
   background-color: rgb(228, 250, 249);
 
 }
@@ -61,6 +61,7 @@ body{
   width: 100px;
 }
 
+
 .navigation .navbar .sign {
   border-bottom-left-radius: 30px;
   border-top-left-radius: 30px;
@@ -77,6 +78,41 @@ body{
 .navigation .navbar-collapse .nav-link:hover {
   color: rgb(73, 40, 19);
 }
+
+.navigation button {
+  width: auto;
+  margin: 0 10px;
+}
+
+/* Styles for medium screens (tablets) */
+@media (max-width: 992px) {
+  .navigation button {
+    width: auto;
+    margin: 0 3px;
+    font-size: 14px;
+  }
+}
+
+/* Styles for small screens (mobile devices) */
+@media (max-width: 768px) {
+  .navigation button {
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  .navigation {
+    flex-direction: column;
+  }
+}
+
+/* Styles for extra small screens (small mobile devices) */
+@media (max-width: 480px) {
+  .navigation button {
+    padding: 5px;
+    font-size: 14px;
+  }
+}
+
 
 .landing {
   position: relative;
@@ -135,7 +171,8 @@ body{
   }
 }
 
-.landing .menu button, .menu button {
+.landing .menu button,
+.menu button {
   background-color: #9bd6f1;
   border-radius: 30px;
   box-shadow: rgba(101, 141, 116, 0.2) 0 -25px 18px -14px inset, rgba(78, 203, 212, 0.15) 0 1px 2px, rgba(44, 187, 99, .15) 0 2px 4px, rgba(94, 208, 228, 0.15) 0 4px 8px;
@@ -152,12 +189,13 @@ body{
 
 }
 
-.landing .menu button:hover {
+.landing .menu button:hover,
+.menu button:hover {
   box-shadow: rgba(21, 71, 129, 0.35) 0 -25px 18px -14px inset, rgba(73, 187, 202, 0.25) 0 1px 2px, rgba(85, 204, 212, 0.25) 0 2px 4px, rgba(81, 221, 226, 0.25) 0 4px 8px, rgba(60, 189, 221, 0.25) 0 8px 16px, rgba(83, 175, 218, 0.25) 0 16px 32px;
 }
 
-.landing{
-  color : rgb(13, 13, 109);
+.landing {
+  color: rgb(13, 13, 109);
 }
 
 
@@ -201,7 +239,8 @@ body{
   background-color: #bce1f3;
 }
 
-.landing .expert img, .landing .patient {
+.landing .expert img,
+.landing .patient {
   width: 200px;
   height: 200px;
   opacity: 1;
@@ -214,7 +253,8 @@ body{
 }
 
 
-.landing .expert .expert-item, .landing .contact {
+.landing .expert .expert-item,
+.landing .contact {
   height: 500px;
   border-radius: 40px;
   background-color: #bce1f3ec;
@@ -267,14 +307,15 @@ body{
     opacity: 0;
     transform: scale(0.5);
   }
+
   to {
     opacity: 1;
     transform: scale(1);
   }
 }
 
-.landing .contact h3{
- color: rgb(13, 13, 109);
+.landing .contact h3 {
+  color: rgb(13, 13, 109);
 }
 
 
@@ -304,6 +345,7 @@ body{
     opacity: 0;
     transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
