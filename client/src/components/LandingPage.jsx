@@ -4,12 +4,11 @@ import dr2 from '../assets/dr2.jpeg';
 import dr1 from '../assets/dr1.jpeg';
 import '../App.css';
 import NavBar from './NavBar';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import Book from './Book';
 import patient from '../assets/patient.jpeg'
 import Customer from './Customer';
 import Review from './Review';
-import { TiArrowSortedDown } from "react-icons/ti";
 
 
 function LandingPage() {
@@ -20,6 +19,7 @@ function LandingPage() {
     const [reviewCu, setReviewCu] = useState(false)
     const [products, setProducts] = useState(false)
     const [expert, setExpert] = useState(false)
+    const componentRef = useRef(null);
 
     const handleBook = () => {
         setReviewCu(false)
@@ -27,6 +27,9 @@ function LandingPage() {
         setProducts(false)
         setContact(false)
         setBook(!book)
+        setTimeout(() => {
+      componentRef.current.scrollIntoView({ behavior: 'smooth' });
+    }, 100);
     }
 
     const handleContact = () => {
@@ -35,14 +38,9 @@ function LandingPage() {
         setProducts(false)
         setReviewCu(false)
         setContact(!contact)
-    }
-
-    const handleReviewsCu = () => {
-        setExpert(false)
-        setBook(false)
-        setProducts(false)
-        setContact(false)
-        setReviewCu(!reviewCu)
+        setTimeout(() => {
+      componentRef.current.scrollIntoView({ behavior: 'smooth' });
+    }, 100);
     }
 
     const handleExpert = () => {
@@ -51,6 +49,9 @@ function LandingPage() {
         setProducts(false)
         setContact(false)
         setExpert(!expert)
+        setTimeout(() => {
+      componentRef.current.scrollIntoView({ behavior: 'smooth' });
+    }, 100);
     }
 
     const handleProducts = () => {
@@ -59,6 +60,9 @@ function LandingPage() {
         setExpert(false)
         setContact(false)
         setProducts(!products)
+        setTimeout(() => {
+      componentRef.current.scrollIntoView({ behavior: 'smooth' });
+    }, 100);
     }
 
     const handleReview = () => {
@@ -74,7 +78,12 @@ function LandingPage() {
     }, [])
     return (
         <div>
-            <NavBar />
+            <NavBar 
+                handleProducts={handleProducts}
+                handleContact={handleContact}
+                handleExpert={handleExpert}
+                handleBook={handleBook}
+            />
             <div className='landing'>
                 <img src={LP} alt='teacher' className='lap' />
                 <img src={BGP} alt='teacher' className='phone' />
@@ -90,27 +99,21 @@ function LandingPage() {
                             <Review onClose={() => setReview(false)} />
                         }
                         <button className='w-75 mx-auto p-2' onClick={handleContact}>Contact Us</button>
-                        {/* <button className='p-2 m-3 w-75' onClick={handleReviewsCu}>Reviews</button> */}
                     </div>
                     <div className='col-md-3 col-sm-4 lap'>
-                        <button className='p-2 m-3 mt-5 w-75' onClick={handleProducts}>Product</button>
-                        <button onClick={sessionStorage.getItem('role') === 'admin' ? handleUser : sessionStorage.getItem('role') === 'user' ? handleReview : handleBook} className='p-2 m-3 w-75'>{sessionStorage.getItem('role') === 'admin' ? 'Add Customer' : sessionStorage.getItem('role') === 'user' ? 'Add Review' : 'Book a free Demo'}</button><br />
-                        <button className='p-2 m-3 w-75' onClick={handleExpert}>Expert's Panel</button>
                         {customer &&
-                            <Customer onClose={() => setCustomer(false)} />
+                            <Customer ref={componentRef} onClose={() => setCustomer(false)} />
                         }
                         {review &&
-                            <Review onClose={() => setReview(false)} />
+                            <Review ref={componentRef} onClose={() => setReview(false)} />
                         }
-                        <button className='p-2 m-3 w-75' onClick={handleContact}>Contact Us</button>
-                        {/* <button className='p-2 m-3 w-75' onClick={handleReviewsCu}>Reviews</button> */}
                     </div>
-                    {book && <div className='book mx-2 col-md-4 col-sm-8 mt-5 my-auto slide expert'>
+                    {book && <div ref={componentRef} className='book mx-2 col-md-4 col-sm-8 mt-5 my-auto slide expert'>
                         <Book />
                     </div>
                     }
                     {expert &&
-                        <div id="expertCarousel" className="carousel col-md-4 col-sm-8 mt-5 my-auto slide expert" data-ride="carousel">
+                        <div ref={componentRef} id="expertCarousel" className="carousel col-md-4 col-sm-8 mt-5 my-auto slide expert" data-ride="carousel">
                             <div className="carousel-inner">
                                 <div className="carousel-item active">
                                     <div className="expert-item text-center px-5">
@@ -153,8 +156,8 @@ function LandingPage() {
                             </a>
                         </div>
                     }
-                    {reviewCu &&
-                        <div id="expertCarousel" className="carousel col-md-4 col-sm-8 mt-5 my-auto slide" data-ride="carousel">
+                    {/* {reviewCu &&
+                        <div ref={componentRef} id="expertCarousel" className="carousel col-md-4 col-sm-8 mt-5 my-auto slide" data-ride="carousel">
                             <div className="carousel-inner review">
                                 {Array(5).fill().map((item, index) => (
                                     <div className={index === 0 ? "carousel-item active" : "carousel-item"}>
@@ -180,22 +183,11 @@ function LandingPage() {
                                 <span className="sr-only">Next</span>
                             </a>
                         </div>
-                    }
+                    } */}
                     {products &&
-                        <div id="expertCarousel" className="carousel patientdata col-md-4 col-sm-8 mt-5 my-auto slide expert" data-ride="carousel">
+                        <div ref={componentRef} id="expertCarousel" className="carousel patientdata col-md-4 col-sm-8 mt-5 my-auto slide expert" data-ride="carousel">
                             <div className="carousel-inner">
-                                <div className="carousel-item expert-item text-center active px-4">
-                                    <h4 className='mt-1'>Patient Management</h4>
-
-                                    <img src={patient} alt='teacher' className='patient mt-2 mb-4' />
-                                    <ul className='text-left'>
-                                        <li>Name, age, gender, contact details, emergency contact.</li>
-                                        <li>Past medical history, family medical history, medications, and surgeries.</li>
-                                        <li>Previous diagnoses, treatments, and interventions.</li>
-                                        <li>Digital signatures for consent and treatment agreements.</li>
-                                    </ul>
-                                </div>
-                                <div className="carousel-item expert-item px-4">
+                                <div className="carousel-item expert-item active px-4">
                                     <h4 className='mt-md-5 mt-sm-2 mb-md-5 mb-sm-2 m-2'>Mental State Examination (MSE) Documentation</h4>
                                     <ul>
                                         <li><strong>Sectioned Data Fields:</strong>
@@ -242,6 +234,17 @@ function LandingPage() {
                                         </li>
                                     </ul>
                                 </div>
+                                <div className="carousel-item expert-item text-center px-4">
+                                    <h4 className='mt-1'>Patient Management</h4>
+
+                                    <img src={patient} alt='teacher' className='patient mt-2 mb-4' />
+                                    <ul className='text-left'>
+                                        <li>Name, age, gender, contact details, emergency contact.</li>
+                                        <li>Past medical history, family medical history, medications, and surgeries.</li>
+                                        <li>Previous diagnoses, treatments, and interventions.</li>
+                                        <li>Digital signatures for consent and treatment agreements.</li>
+                                    </ul>
+                                </div>
                             </div>
                             <a className="carousel-control-prev" href="#expertCarousel" role="button" data-slide="prev">
                                 <span className="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -254,7 +257,7 @@ function LandingPage() {
                         </div>
                     }
                     {contact &&
-                        <div className='mx-2 col-md-4 col-sm-8 mt-5 my-auto contact text-center'>
+                        <div ref={componentRef} className='mx-2 col-md-4 col-sm-8 mt-5 my-auto contact text-center'>
                             <div>
                                 <div className="text-center mt-4 mb-5">
                                     <h3 className='mt-5'>Get in touch with us!</h3>
